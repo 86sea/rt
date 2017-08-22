@@ -11,9 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
- 
 /* Make the data structure self-contained.  Element at row i and col j
    is x[i * w + j].  More often than not, though,  you might want
    to represent a matrix some other way */
