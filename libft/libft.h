@@ -84,5 +84,8 @@ char			*ft_strmerge(char *a, char *b);
 
 t_vec3f			ft_add_vectors(t_vec3f v0, t_vec3f v1);
 t_vec3f			ft_subtract_vectors(t_vec3f v0, t_vec3f v1);
+t_vec3f			ft_multi_vector(t_vec3f v, float t);
+float			ft_magnitude(t_vec3f v);
+float			ft_dot_prod(t_vec3f v0, t_vec3f v1);
 
 #endif
