@@ -25,6 +25,13 @@ typedef struct	s_vec3f
 {
 	float		vec[3];
 }				t_vec3f;
+typedef struct	s_matrix
+{
+	int		h;
+	int		w;
+	double	*x;
+} 				t_matrix;
+typedef t_matrix *matrix;
 int				ft_strlen(const char *str);
 char			*ft_strdup(const char *str);
 char			*ft_strcat(char *s1, const char *s2);
@@ -87,5 +94,15 @@ t_vec3f			ft_subtract_vectors(t_vec3f v0, t_vec3f v1);
 t_vec3f			ft_multi_vector(t_vec3f v, float t);
 float			ft_magnitude(t_vec3f v);
 float			ft_dot_prod(t_vec3f v0, t_vec3f v1);
+t_vec3f			ft_unit_vector(t_vec3f v);
+t_vec3f			ft_vec_to_point(t_vec3f p, t_vec3f v, float m);
+float			ft_vector_angle(t_vec3f a, t_vec3f b);
+t_vec3f			ft_vec_to_point(t_vec3f p, t_vec3f v, float m);
+float			ft_vector_dist(t_vec3f v0, t_vec3f a);
+matrix 			mat_mul(matrix a, matrix b);
+matrix 			mat_new(int h, int w);
+inline double 	dot(double *a, double *b, int len, int step);
+
+
 
 #endif
