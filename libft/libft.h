@@ -13,6 +13,7 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
+# include <math.h>
 
 typedef struct	s_list
 {
@@ -20,6 +21,10 @@ typedef struct	s_list
 	size_t			content_size;
 	struct s_list	*next;
 }				t_list;
+typedef struct	s_vec3f
+{
+	float		vec[3];
+}				t_vec3f;
 int				ft_strlen(const char *str);
 char			*ft_strdup(const char *str);
 char			*ft_strcat(char *s1, const char *s2);
@@ -76,4 +81,8 @@ int				ft_abs(int num);
 t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstadd(t_list **alst, t_list *new);
 char			*ft_strmerge(char *a, char *b);
+
+t_vec3f			ft_add_vectors(t_vec3f v0, t_vec3f v1);
+t_vec3f			ft_subtract_vectors(t_vec3f v0, t_vec3f v1);
+
 #endif
