@@ -100,10 +100,11 @@ t_vec3f			ft_vec_to_point(t_vec3f p, t_vec3f v, float m);
 float			ft_vector_angle(t_vec3f a, t_vec3f b);
 t_vec3f			ft_vec_to_point(t_vec3f p, t_vec3f v, float m);
 float			ft_vector_dist(t_vec3f v0, t_vec3f a);
-matrix 			mat_mul(matrix a, matrix b);
-matrix 			mat_new(int h, int w);
-inline double 	dot(double *a, double *b, int len, int step);
-void	multi_point_matrix(t_vec3f *src, t_vec3f *dst, int **x);
-void	multi_point_matrix(t_vec3f *src, t_vec3f *dst, int **x);
+matrix			mat_mul(matrix a, matrix b);
+matrix			mat_new(int h, int w);
+inline double	dot(double *a, double *b, int len, int step);
+void			multi_point_matrix(t_vec3f *src, t_vec3f *dst, int **x);
+void			multi_point_matrix(t_vec3f *src, t_vec3f *dst, int **x);
+inline float	deg_to_rad(float theta);
 
 #endif

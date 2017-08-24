@@ -83,16 +83,7 @@ void			multi_point_matrix(t_vec3f *src, t_vec3f *dst, int **x)
 	while (++i < 3)
 		dst->vec[i] = tmp.vec[i];
 }
-/*void mat_show(matrix a)
-{
-	int i, j;
-	double *p = a->x;
-	for (i = 0; i < a->h; i++, putchar('\n'))
-		for (j = 0; j < a->w; j++)
-			printf("\t%7.3f", *p++);
-	putchar('\n');
-}
- */
+
 /*
  ** USAGE
  **	double da[] = {	1, 1,  1,   1,

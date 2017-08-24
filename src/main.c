@@ -34,14 +34,15 @@ void	init_matrix(t_scene *scene)
 int		main(void)
 {
 	t_scene scene;
-	t_shape shapearr[1];
+	t_shape shapes[1];
 
 	scene.width = 640;
 	scene.height = 480;
 	scene.fov = 51.52;
 	scene.x = 	(double)
-					shapearr[0].shapeid = sphere;
-	shapearr[0].shape.sphere.center = (t_vec3f){0.1, 0.1, 0.1};
-	shapearr[0].shape.sphere.radius = 0.2;
+					shapes[0].shapeid = sphere;
+	shapes[0].shape.sphere.center = (t_vec3f){0.1, 0.1, 0.1};
+	shapes[0].shape.sphere.radius = 0.2;
+	render(&scene, &shapes);
 
 }

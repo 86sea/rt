@@ -58,16 +58,16 @@ typedef struct	s_mlx
 }				t_mlx;
 typedef struct	s_scene
 {
-	float		width;
-	float		height;
+	int		width;
+	int		height;
 	float			x[4][4];
 	t_mlx		mlx;
 	float		fov;
 }				t_scene;
 typedef struct	s_ray
 {
-	t_vec3f		origin;
-	t_vec3f		direction;
+	t_vec3f		orig;
+	t_vec3f		dir;
 	t_vec3f		pixel;
 }				t_ray;
 
