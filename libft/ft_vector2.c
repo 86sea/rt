@@ -24,8 +24,12 @@ t_vec3f		ft_unit_vector(t_vec3f v)
 
 	m = ft_magnitude(v);
 	i = -1;
-	while (++i < 3)
-		v0.vec[i] = v.vec[i] / m;
+	if (m > 0)
+	{
+		m = 1 / sqrt(m);
+		while (++i < 3)
+			v0.vec[i] = v.vec[i] * m;
+	}
 	return (v0);
 }
 

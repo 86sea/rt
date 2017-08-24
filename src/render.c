@@ -35,13 +35,11 @@ void	render(t_scene *scene, t_shape *shapes)
 			ray.pixel.vec[0] = (2 * (i + 0.5) / (float)scene->width - 1) * scale;
 			ray.pixel.vec[1] = (1 - 2 * (j + 0.5) / (float)scene->height)
 				* scale * 1 / img_aspect_ratio;
+			ray.pixel.vec[2] = -1;
+			multi_point_matrix(&ray.pixel, &ray.dir);
+			ray.dir = ft_unit_vector(ray.dir);
+			ray.hitcolor = castray(ray.orig, ray.dir, shapes)
 			i++;
-			ray.dir.vec[0] = x;
-			ray.dir.vec[1] = y;
-			ray.dir.vec[2] = -1;
-
-			multi_point_matrix(&ray.dir, &ray.dir);
-			// norm dir ????
 		}
 		j++;
 	}
