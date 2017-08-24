@@ -39,8 +39,8 @@ int		main(void)
 	scene.width = 640;
 	scene.height = 480;
 	scene.fov = 51.52;
-	scene.x = 	(double)
-					shapes[0].shapeid = sphere;
+	scene.img_aspect_ratio = img_aspect_ratio = HIEGHT / WIDTH;
+	init_matrix(&scene);
 	shapes[0].shape.sphere.center = (t_vec3f){0.1, 0.1, 0.1};
 	shapes[0].shape.sphere.radius = 0.2;
 	render(&scene, &shapes);

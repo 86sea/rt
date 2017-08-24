@@ -49,6 +49,7 @@ typedef struct	s_shape
 {
 	t_shapeid	shapeid;
 	t_ushapes	shape;
+	t_vec3f		color;
 }				t_shape;
 typedef struct	s_mlx
 {
@@ -63,14 +64,20 @@ typedef struct	s_scene
 	float		x[4][4];
 	t_mlx		mlx;
 	float		fov;
-
+	float		img_aspect_ratio;
 }				t_scene;
 typedef struct	s_ray
 {
 	t_vec3f		orig;
 	t_vec3f		dir;
 	t_vec3f		pixel;
+	t_vec3f		phit;
+	t_vec3f		nhit;
 	t_vec3f		hitcolor;
+	float		scale;
+	int			i;
+	int			j;
+	float		t;
 }				t_ray;
 
 void			init_scene(int fd, t_scene *scene);

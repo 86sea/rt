@@ -25,6 +25,10 @@ typedef struct	s_vec3f
 {
 	float		vec[3];
 }				t_vec3f;
+typedef struct	s_vec2f
+{
+	float		vec[2];
+}				t_vec2f;
 typedef struct	s_matrix
 {
 	int		h;
@@ -106,5 +110,7 @@ inline double	dot(double *a, double *b, int len, int step);
 void			multi_point_matrix(t_vec3f *src, t_vec3f *dst, int **x);
 void			multi_point_matrix(t_vec3f *src, t_vec3f *dst, int **x);
 inline float	deg_to_rad(float theta);
+inline void		init_vec(t_vec3f *v);
+inline	t_vec3f	vec_change_sign(t_vec3f v);
 
 #endif
