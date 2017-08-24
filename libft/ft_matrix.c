@@ -12,35 +12,40 @@
 
 #include "libft.h"
 
-/* Make the data structure self-contained.  Element at row i and col j
-   is x[i * w + j].  More often than not, though,  you might want
-   to represent a matrix some other way */
- 
-inline double dot(double *a, double *b, int len, int step)
+inline double	dot(double *a, double *b, int len, int step)
 {
-	double r = 0;
-	while (len--) {
+	double r;
+
+	r = 0.0;
+	while (len--)
+	{
 		r += *a++ * *b;
 		b += step;
 	}
 	return (r);
 }
- 
-matrix mat_new(int h, int w)
+
+matrix			mat_new(int h, int w)
 {
-	matrix r = malloc(sizeof(t_matrix) + sizeof(double) * w * h);
-	r->h = h, r->w = w;
+	matrix r;
+
+	r = malloc(sizeof(t_matrix) + sizeof(double) * w * h);
+	r->h = h;
+	r->w = w;
 	r->x = (double*)(r + 1);
 	return (r);
 }
- 
-matrix mat_mul(matrix a, matrix b)
+
+matrix			mat_mul(matrix a, matrix b)
 {
-	matrix r;
-	double *p, *pa;
-	int i, j;
-	if (a->w != b->h) return 0;
- 
+	matrix	r;
+	double	*p;
+	double	*pa;
+	int		i;
+	int		j;
+
+	if (a->w != b->h)
+		return (0);
 	r = mat_new(a->h, b->w);
 	p = r->x;
 	for (pa = a->x, i = 0; i < a->h; i++, pa += a->w)
@@ -48,7 +53,36 @@ matrix mat_mul(matrix a, matrix b)
 			*p++ = dot(pa, b->x + j, a->w, b->w);
 	return (r);
 }
- 
+
+void			multi_vec_matrix(t_vec3f *src, t_vec3f *dst, int **x)
+{
+	t_vec3f	tmp;
+	float	w;
+	int		i;
+
+	i = -1;
+	while (++i < 3)
+		tmp.vec[i] = src->vec[0] * x[0][0] + src->vec[1]
+			* x[1][0] + src->vec[2] * x[2][0];
+	w = src->vec[0] * x[0][0] + src->vec[1] * x[1][0] + src->vec[2] * x[2][0];
+	i = -1;
+	while (++i < 3)
+		dst->vec[i] = tmp.vec[i] / w;
+}
+
+void			multi_point_matrix(t_vec3f *src, t_vec3f *dst, int **x)
+{
+	t_vec3f	tmp;
+	int		i;
+
+	i = -1;
+	while (++i < 3)
+		tmp.vec[i] = src->vec[0] * x[0][i] + src->vec[1]
+			+ src->vec[2] * x[2][i];
+	i = -1;
+	while (++i < 3)
+		dst->vec[i] = tmp.vec[i];
+}
 /*void mat_show(matrix a)
 {
 	int i, j;

@@ -30,7 +30,8 @@ typedef struct	s_matrix
 	int		h;
 	int		w;
 	double	*x;
-} 				t_matrix;
+}				t_matrix;
+
 typedef t_matrix *matrix;
 int				ft_strlen(const char *str);
 char			*ft_strdup(const char *str);
@@ -102,7 +103,7 @@ float			ft_vector_dist(t_vec3f v0, t_vec3f a);
 matrix 			mat_mul(matrix a, matrix b);
 matrix 			mat_new(int h, int w);
 inline double 	dot(double *a, double *b, int len, int step);
-
-
+void	multi_point_matrix(t_vec3f *src, t_vec3f *dst, int **x);
+void	multi_point_matrix(t_vec3f *src, t_vec3f *dst, int **x);
 
 #endif
