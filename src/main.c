@@ -30,19 +30,27 @@ void	init_matrix(t_scene *scene)
 	scene->x[3][1] = 0;
 	scene->x[3][2] = -6.404043;
 	scene->x[3][3] = 1;
+	scene->n = 3;
 }
 int		main(void)
 {
 	t_scene scene;
-	t_shape shapes[1];
+	t_shape shapes[3];
 
 	scene.width = 640;
 	scene.height = 480;
 	scene.fov = 51.52;
-	scene.img_aspect_ratio = img_aspect_ratio = HIEGHT / WIDTH;
+	scene.img_aspect_ratio = HEIGHT / WIDTH;
 	init_matrix(&scene);
 	shapes[0].shape.sphere.center = (t_vec3f){0.1, 0.1, 0.1};
 	shapes[0].shape.sphere.radius = 0.2;
-	render(&scene, &shapes);
+	shapes[0].color = (t_vec3f){20, 20, 20};
+	shapes[1].shape.sphere.center = (t_vec3f){0.2, 0.4, 0.2};
+	shapes[1].shape.sphere.radius = 0.1;
+	shapes[1].color = (t_vec3f){20, 20, 20};
+	shapes[2].shape.sphere.center = (t_vec3f){0.1, 0.6, 0.3};
+	shapes[2].shape.sphere.radius = 0.1;
+	shapes[3].color = (t_vec3f){20, 20, 20};
+	render(&scene, shapes);
 
 }

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-inline double	dot(double *a, double *b, int len, int step)
+static inline double	dot(double *a, double *b, int len, int step)
 {
 	double r;
 
@@ -54,7 +54,7 @@ matrix			mat_mul(matrix a, matrix b)
 	return (r);
 }
 
-void			multi_vec_matrix(t_vec3f *src, t_vec3f *dst, int **x)
+void			multi_vec_matrix(t_vec3f *src, t_vec3f *dst, float x[4][4])
 {
 	t_vec3f	tmp;
 	float	w;
@@ -70,7 +70,7 @@ void			multi_vec_matrix(t_vec3f *src, t_vec3f *dst, int **x)
 		dst->vec[i] = tmp.vec[i] / w;
 }
 
-void			multi_point_matrix(t_vec3f *src, t_vec3f *dst, int **x)
+void			multi_point_matrix(t_vec3f *src, t_vec3f *dst, float x[4][4])
 {
 	t_vec3f	tmp;
 	int		i;

@@ -10,12 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-inline float deg_to_rad(float theta)
+#include "libft.h"
+
+inline float 	deg_to_rad(float theta)
 {
 	return (theta * (180.0 / M_PI));
 }
 
-inline void init_vec(t_vec3f *v)
+void			init_vec(t_vec3f *v)
 {
 	int i;
 
@@ -24,7 +26,7 @@ inline void init_vec(t_vec3f *v)
 		v->vec[i] = 0;
 }
 
-inline	t_vec3f	vec_change_sign(t_vec3f v)
+t_vec3f			vec_change_sign(t_vec3f v)
 {
 	int i;
 
@@ -33,4 +35,14 @@ inline	t_vec3f	vec_change_sign(t_vec3f v)
 	while (++i < 3)
 		v.vec[i] *= -1;
 	return (v);
+}
+
+void	ft_solve_quad(t_quad *q)
+{
+	q->delta = pow(q->b, 2) - 4 * q->a * q->c;
+	if (q->delta >= 0)
+	{
+		q->x0 = (-q->b - sqrt(q->delta)) / (2 * q->a);
+		q->x1 = (-q->b + sqrt(q->delta)) / (2 * q->a);
+	}
 }

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+
 float		ft_vector_dist(t_vec3f v0, t_vec3f a)
 {
 	return (ft_magnitude(ft_subtract_vectors(v0, a)));
@@ -22,6 +23,7 @@ t_vec3f		ft_unit_vector(t_vec3f v)
 	float	m;
 	int		i;
 
+	init_vec(&v0);
 	m = ft_magnitude(v);
 	i = -1;
 	if (m > 0)

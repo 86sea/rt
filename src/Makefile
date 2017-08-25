@@ -1,9 +1,6 @@
-NAME = RTv1
+NAME = RT
 
-SRC = main.c \
-		raytrace.c \
-		init.c \
-		vector.c \
+SRC = main.c render.c inter.c \
 
 OBJ = ${SRC:c=o}
 

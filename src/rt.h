@@ -65,6 +65,7 @@ typedef struct	s_scene
 	t_mlx		mlx;
 	float		fov;
 	float		img_aspect_ratio;
+	int			n;
 }				t_scene;
 typedef struct	s_ray
 {
@@ -80,12 +81,14 @@ typedef struct	s_ray
 	float		t;
 }				t_ray;
 
-void			init_scene(int fd, t_scene *scene);
-void			init_sphere(int fd, t_shape *shapearr);
-void			raytrace(t_shape *shapearr, t_scene *scene, t_ray ray, int n);
-void			init_ray(int fd, t_ray *ray);
 int				sphere_inter(t_shape shapearr, t_ray ray, float *t);
-void			new_frame(t_scene *scene);
-void			normalize(t_scene *scene, t_shape *shapearr, t_ray *ray);
+int				inter(t_ray *ray, t_shape *shape);
+void			inter_sphere(t_ray *ray, t_shape *shape, int *hit);
+int				trace(t_ray *ray, t_shape *shapes, t_scene *scene, int *i);
+t_vec3f			castray(t_ray *ray, t_shape *shapes, t_scene *scene);
+void					get_surface_data(t_ray *ray,
+							t_vec3f center, t_vec2f *tex);
+void					render(t_scene *scene, t_shape *shapes);
+
 
 #endif
