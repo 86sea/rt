@@ -17,12 +17,25 @@ static inline	t_vec3f	mix(t_vec3f a, t_vec3f b, float mixvalue)
 	return (ft_add_vectors(ft_multi_vector(a, (1 - mixvalue)),
 		ft_multi_vector(b, mixvalue)));
 }
+static void		init_ray(t_ray *ray)
+{
+	init_vec(&ray->orig);
+	init_vec(&ray->dir);
+	ray->dir.vec[2] = -1;
+	init_vec(&ray->pixel);
+	init_vec(&ray->phit);
+	init_vec(&ray->nhit);
+	init_vec(&ray->hitcolor);
+	ray->t = 0;
+
+}
 
 void					render(t_scene *scene, t_shape *shapes)
 {
 	t_ray		ray;
 
-	init_vec(&ray.orig);
+	init_ray(&ray);
+	ray.dir.vec[2] = -1;
 	ray.scale = tan(deg_to_rad(scene->fov * 0.5));
 	multi_vec_matrix(&ray.orig, &ray.orig, scene->x);
 	ray.j = 0;
@@ -81,6 +94,7 @@ int						trace(t_ray *ray, t_shape *shapes, t_scene *scene, int *i)
 	{
 		if ((inter(ray, &shapes[*i])) && ray->t < t)
 		{
+			mlx_pixel_put(scene->mlx.mlx, scene->mlx.win, ray->i, ray->j, 0x00ffaabb);
 			*i = n;
 			return (1);
 		}
