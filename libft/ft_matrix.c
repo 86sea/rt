@@ -57,31 +57,42 @@ matrix			mat_mul(matrix a, matrix b)
 void			multi_vec_matrix(t_vec3f *src, t_vec3f *dst, float x[4][4])
 {
 	t_vec3f	tmp;
-	float	w;
 	int		i;
+	float a, b, c, w;
 
-	i = -1;
+	a = src->vec[0] * x[0][0] + src->vec[1] * x[1][0] + src->vec[2] * x[2][0] + x[3][0];
+	b = src->vec[0] * x[0][1] + src->vec[1] * x[1][1] + src->vec[2] * x[2][1] + x[3][1];
+	c = src->vec[0] * x[0][2] + src->vec[1] * x[1][2] + src->vec[2] * x[2][2] + x[3][2];
+	w = src->vec[0] * x[0][3] + src->vec[1] * x[1][3] + src->vec[2] * x[2][3] + x[3][3];
+	/*i = -1;
 	while (++i < 3)
 		tmp.vec[i] = src->vec[0] * x[0][0] + src->vec[1]
 			* x[1][0] + src->vec[2] * x[2][0];
 	w = src->vec[0] * x[0][0] + src->vec[1] * x[1][0] + src->vec[2] * x[2][0];
-	i = -1;
-	while (++i < 3)
-		dst->vec[i] = tmp.vec[i] / w;
+	*/
+//	i = -1;
+//	while (++i < 3)
+//		dst->vec[i] = tmp.vec[i] / w;
 }
 
 void			multi_point_matrix(t_vec3f *src, t_vec3f *dst, float x[4][4])
 {
 	t_vec3f	tmp;
 	int		i;
+	float	a, b, c;
 
+	a = src->vec[0] * x[0][0] + src->vec[1] * x[1][0] + src->vec[2] * x[2][0];
+	b = src->vec[0] * x[0][1] + src->vec[1] * x[1][1] + src->vec[2] * x[2][1];
+	c = src->vec[0] * x[0][2] + src->vec[1] * x[1][2] + src->vec[2] * x[2][2];
+/*
 	i = -1;
 	while (++i < 3)
 		tmp.vec[i] = src->vec[0] * x[0][i] + src->vec[1]
 			+ src->vec[2] * x[2][i];
-	i = -1;
-	while (++i < 3)
-		dst->vec[i] = tmp.vec[i];
+	*/
+//	i = -1;
+//	while (++i < 3)
+	//	dst->vec[i] = tmp.vec[i];
 }
 
 /*

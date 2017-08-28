@@ -84,11 +84,11 @@ typedef struct	s_ray
 int				sphere_inter(t_shape shapearr, t_ray ray, float *t);
 int				inter(t_ray *ray, t_shape *shape);
 void			inter_sphere(t_ray *ray, t_shape *shape, int *hit);
-int				trace(t_ray *ray, t_shape *shapes, t_scene *scene, int *i);
+int				trace(t_ray *ray, t_shape *shapes, t_scene *scene);
 t_vec3f			castray(t_ray *ray, t_shape *shapes, t_scene *scene);
-void					get_surface_data(t_ray *ray,
-							t_vec3f center, t_vec2f *tex);
-void					render(t_scene *scene, t_shape *shapes);
+void			get_surface_data(t_ray *ray,
+				t_vec3f center, t_vec2f *tex);
+void			render(t_scene *scene, t_shape *shapes);
 
 
 #endif

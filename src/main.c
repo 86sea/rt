@@ -38,16 +38,18 @@ static void		init_mlx(t_scene *scene)
 	scene->mlx.mlx = mlx_init();
 	scene->mlx.win = mlx_new_window(scene->mlx.mlx, WIDTH, HEIGHT, "RT");
 }
+
 static void vec_init(t_vec3f *v, float x, float y, float z)
 {
 	v->vec[0] = x;
 	v->vec[1] = y;
 	v->vec[2] = z;
 }
+
 int		main(void)
 {
 	t_scene scene;
-	t_shape *shapes;
+	t_shape shapes[3];
 	t_vec3f color;
 
 	color.vec[0] = 50;
@@ -58,17 +60,17 @@ int		main(void)
 	scene.fov = 51.52;
 	scene.img_aspect_ratio = HEIGHT / WIDTH;
 	init_matrix(&scene);
-	shapes = (t_shape *)malloc(sizeof(t_shape) * 3);
+	//shapes = (t_shape *)malloc(sizeof(t_shape) * 3);
 	vec_init(&shapes[0].shape.sphere.center, 0, 0, 0);
-	shapes[0].shape.sphere.radius = 1000;
+	shapes[0].shape.sphere.radius = 0.5;
 	shapes[0].color = color;
 	shapes[0].shapeid = sphere;
-	vec_init(&shapes[1].shape.sphere.center, 0.2, 0.4, 0.2);
-	shapes[1].shape.sphere.radius = 0.1;
+	vec_init(&shapes[1].shape.sphere.center, 1, 1, 1);
+	shapes[1].shape.sphere.radius = 0.5;
 	shapes[1].color = color;
 	shapes[1].shapeid = sphere;
-	vec_init(&shapes[2].shape.sphere.center, 0.1, 0.6, 0.3);
-	shapes[2].shape.sphere.radius = 0.1;
+	vec_init(&shapes[2].shape.sphere.center, -0.5, 0.6, 0.3);
+	shapes[2].shape.sphere.radius = 0.5;
 	shapes[2].color = color;
 	shapes[2].shapeid = sphere;
 	init_mlx(&scene);

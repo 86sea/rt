@@ -17,7 +17,6 @@ int			inter(t_ray *ray, t_shape *shape)
 	int hit;
 
 	hit = 0;
-
 	if (shape->shapeid == sphere)
 		inter_sphere(ray, shape, &hit);
 	return (hit);

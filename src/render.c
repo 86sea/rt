@@ -48,12 +48,13 @@ void					render(t_scene *scene, t_shape *shapes)
 			ray.pixel.vec[2] = -1;
 			ray.dir = ray.pixel;
 			multi_point_matrix(&ray.pixel, &ray.dir, scene->x);
+			printf("%f\n", ray.dir.vec[0]);
 			ray.dir = ft_unit_vector(ray.dir);
+			printf("%f\n", ray.dir.vec[0]);
 			ray.hitcolor = castray(&ray, shapes, scene);
 			//printf("%f\n", ray.hitcolor.vec[0]);
 			ray.i++;
 		}
-		printf("y++ ");
 		ray.j++;
 	}
 }
@@ -66,9 +67,8 @@ t_vec3f					castray(t_ray *ray, t_shape *shapes, t_scene *scene)
 	t_vec3f	hitcolor;
 	int 	i;
 
-
 	init_vec(&hitcolor);
-	if (trace(ray, shapes, scene, &i))
+	if (trace(ray, shapes, scene))
 	{
 		ray->phit = ft_add_vectors(ray->orig, ft_multi_vector(ray->dir, ray->t));
 		get_surface_data(ray,
@@ -80,11 +80,12 @@ t_vec3f					castray(t_ray *ray, t_shape *shapes, t_scene *scene)
 					ft_multi_vector(shapes->color, 0.8), pattern), 15
 						/*fmaxf(0xf, ft_dot_prod(ray->nhit,
 						vec_change_sign(ray->dir)))*/);
+		mlx_pixel_put(scene->mlx.mlx, scene->mlx.win, ray->i, ray->j, 0x0555555 * (hitcolor.vec[0] + 1));
 	}
 	return (hitcolor);
 }
 
-int						trace(t_ray *ray, t_shape *shapes, t_scene *scene, int *i)
+int						trace(t_ray *ray, t_shape *shapes, t_scene *scene)
 {
 	float	t;
 	int		n;
@@ -95,10 +96,9 @@ int						trace(t_ray *ray, t_shape *shapes, t_scene *scene, int *i)
 
 	while (n < scene->n)
 	{
-		if ((inter(ray, &shapes[*i])) && ray->t < t)
+		if ((inter(ray, &shapes[n])) && ray->t < t)
 		{
-			mlx_pixel_put(scene->mlx.mlx, scene->mlx.win, ray->i, ray->j, 0x0ffffff);
-			*i = n;
+			t = ray->t;
 			return (1);
 		}
 		n++;
