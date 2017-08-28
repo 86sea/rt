@@ -48,9 +48,9 @@ void					render(t_scene *scene, t_shape *shapes)
 			ray.pixel.vec[2] = -1;
 			ray.dir = ray.pixel;
 			multi_point_matrix(&ray.pixel, &ray.dir, scene->x);
-			printf("%f\n", ray.dir.vec[0]);
-			ray.dir = ft_unit_vector(ray.dir);
-			printf("%f\n", ray.dir.vec[0]);
+		//	printf("%f\n", ray.dir.vec[0]);
+			ft_unit_vector(&ray.dir);
+			//printf("%f\n", ray.dir.vec[0]);
 			ray.hitcolor = castray(&ray, shapes, scene);
 			//printf("%f\n", ray.hitcolor.vec[0]);
 			ray.i++;
@@ -110,7 +110,7 @@ void					get_surface_data(t_ray *ray,
 							t_vec3f center, t_vec2f *tex)
 {
 	ray->nhit = ft_subtract_vectors(ray->phit, center);
-	ray->nhit = ft_unit_vector(ray->nhit);
+	ft_unit_vector(&ray->nhit);
 	tex->vec[0] = (1 + atan2(ray->nhit.vec[2], ray->nhit.vec[0]) / M_PI) * 0.5;
 	tex->vec[1] = acosf(ray->nhit.vec[2]) / M_PI;
 }

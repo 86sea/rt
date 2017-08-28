@@ -31,7 +31,6 @@ t_vec3f			vec_change_sign(t_vec3f v)
 	int i;
 
 	i = -1;
-
 	while (++i < 3)
 		v.vec[i] *= -1;
 	return (v);

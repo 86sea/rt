@@ -11,28 +11,27 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include "stdio.h"
+#include <unistd.h>
 float		ft_vector_dist(t_vec3f v0, t_vec3f a)
 {
 	return (ft_magnitude(ft_subtract_vectors(v0, a)));
 }
 
-t_vec3f		ft_unit_vector(t_vec3f v)
+void		ft_unit_vector(t_vec3f *v)
 {
-	t_vec3f	v0;
 	float	m;
 	int		i;
 
-	init_vec(&v0);
-	m = ft_magnitude(v);
+	m = ft_magnitude(*v);
+	//printf("%f\n", m);
 	i = -1;
 	if (m > 0)
 	{
 		m = 1 / sqrt(m);
 		while (++i < 3)
-			v0.vec[i] = v.vec[i] * m;
+			v->vec[i] *= m;
 	}
-	return (v0);
 }
 
 t_vec3f		ft_norm_vector(t_vec3f v, t_vec3f a, t_vec3f b)

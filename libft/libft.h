@@ -113,7 +113,7 @@ t_vec3f			ft_subtract_vectors(t_vec3f v0, t_vec3f v1);
 t_vec3f			ft_multi_vector(t_vec3f v, float t);
 float			ft_magnitude(t_vec3f v);
 float			ft_dot_prod(t_vec3f v0, t_vec3f v1);
-t_vec3f			ft_unit_vector(t_vec3f v);
+void			ft_unit_vector(t_vec3f *v);
 t_vec3f			ft_vec_to_point(t_vec3f p, t_vec3f v, float m);
 float			ft_vector_angle(t_vec3f a, t_vec3f b);
 t_vec3f			ft_vec_to_point(t_vec3f p, t_vec3f v, float m);

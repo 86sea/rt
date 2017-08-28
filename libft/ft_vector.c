@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include <stdio.h>
 t_vec3f		ft_add_vectors(t_vec3f v0, t_vec3f v1)
 {
 	int		i;
@@ -46,13 +46,11 @@ t_vec3f		ft_multi_vector(t_vec3f v, float t)
 
 float		ft_magnitude(t_vec3f v)
 {
-	float		t;
-	int			i;
+	float t;
 
-	t = 0;
-	i = -1;
-	while (++i < 3)
-		t += v.vec[i] * v.vec[i];
+	
+	t = v.vec[0] * v.vec[0] + v.vec[1] * v.vec[1] + v.vec[2] * v.vec[2];
+	printf("%f\n", t);
 	return (sqrt(t));
 }
 
