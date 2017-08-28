@@ -59,8 +59,8 @@ int		main(void)
 	scene.img_aspect_ratio = HEIGHT / WIDTH;
 	init_matrix(&scene);
 	shapes = (t_shape *)malloc(sizeof(t_shape) * 3);
-	vec_init(&shapes[0].shape.sphere.center, -0.1, -0.1, -0.1);
-	shapes[0].shape.sphere.radius = 10;
+	vec_init(&shapes[0].shape.sphere.center, 0, 0, 0);
+	shapes[0].shape.sphere.radius = 1000;
 	shapes[0].color = color;
 	shapes[0].shapeid = sphere;
 	vec_init(&shapes[1].shape.sphere.center, 0.2, 0.4, 0.2);
