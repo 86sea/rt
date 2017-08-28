@@ -17,7 +17,7 @@ static inline	t_vec3f	mix(t_vec3f a, t_vec3f b, float mixvalue)
 	return (ft_add_vectors(ft_multi_vector(a, (1 - mixvalue)),
 		ft_multi_vector(b, mixvalue)));
 }
-static void		init_ray(t_ray *ray)
+static void				init_ray(t_ray *ray)
 {
 	init_vec(&ray->orig);
 	init_vec(&ray->dir);
